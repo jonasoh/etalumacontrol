@@ -6,7 +6,7 @@ This library provides a simplified Python interface for interacting with Etaluma
 
 ## Current state and limitations
 
-This library was written to facilitate our own use case, but may also be useful to others. If there's a particular feature that you feel is lacking, feel free to submit an issue or PR. Etalumacontrol has only been tested on our LS720, but should work on any 600 and 700 series microscope.
+This library was written to facilitate our own use case, but may also be useful to others. If there's a particular feature that you feel is lacking, feel free to submit an issue or PR. Etalumacontrol has only been tested on our LS720, but should work on any 600 and 700 series microscope. 32-bit versions of the LumaUSB and WSC DLL's are included, but have not been tested.
 
 ## Sample program
 
