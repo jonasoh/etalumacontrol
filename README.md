@@ -12,7 +12,7 @@ This library was written to facilitate our own use case, but may also be useful 
 
 Here's a sample program which moves the stage to a specified position, acquires an image, and displays it on the screen.
 
-```
+```python
 from etalumacontrol import EtalumaStage, LumaScope
 
 # use the "with" statement to automatically handle resource allocation
