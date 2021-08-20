@@ -6,8 +6,6 @@ import sys
 import time
 import platform
 from PIL import Image
-from io import BytesIO
-from typing import Union
 from .CypressFX import FX2
 from .definitions import RSC_DIR, LIB_DIR, LED_WHITE
 
@@ -192,19 +190,25 @@ class LumaScope(object):
         
         If an image cannot be retrieved, returns ``None``.
         '''
-        (status, buffer) = self.hw.GetLatest24bppBuffer(None)
-        if not status:
-            return None
+        if (buffer := self.get_raw_image_buffer()) is not None:
+            return Image.frombytes('RGB', (self.resolution, self.resolution), buffer)
         else:
-            return Image.frombytes('RGB', (self.resolution, self.resolution - 1),
-                                   BytesIO(bytes(buffer)).read())
+            return None
 
     def get_raw_image_buffer(self):
         '''
         Return the contents of the image buffer as bytes, or ``None``.
         '''
         (status, buffer) = self.hw.GetLatest24bppBuffer(None)
+        buffer = bytes(buffer)
+
+        # there's a bug in certain versions of the SDK that causes the last line
+        # of the buffer to not be returned. add a black line to the bottom of
+        # the image if this is the case.
+        if len(buffer) < self.resolution**2 * 3:
+            buffer += bytes(self.resolution * 3)
+
         if not status:
             return None
         else:
-            return BytesIO(bytes(buffer)).read()
+            return buffer
