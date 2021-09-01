@@ -1,8 +1,5 @@
 from setuptools import setup, find_packages
 
-with open('LICENSE') as f:
-    license = f.read()
-
 with open('README.md') as f:
     readme = f.read()
 
@@ -20,7 +17,7 @@ setup(
         "Operating System :: Microsoft :: Windows",
         "Topic :: Scientific/Engineering",
     ],
-    license=license,
+    license="BSD license",
     packages=find_packages(),
     include_package_data=True,
     install_requires=['intelhex>=2.3.0', 'Pillow>=8.3.1', 'pycparser>=2.20', 'pythonnet>=2.5.2', 'pyusb>=1.2.1']
