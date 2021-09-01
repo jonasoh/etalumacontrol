@@ -8,6 +8,14 @@ This library provides a simplified Python interface for interacting with Etaluma
 
 This library was written to facilitate our own use case, but may also be useful to others. If there's a particular feature that you feel is lacking, feel free to submit an issue or PR. Etalumacontrol has only been tested on our LS720, but should work on any 600 and 700 series microscope. 32-bit versions of the LumaUSB and WSC DLL's are included, but have not been tested.
 
+## Installation
+
+You may install etalumacontrol from [PyPI](https://pypi.org/project/etalumacontrol/) by entering the following into a shell prompt, preferably after activating a virtual environment:
+
+```
+py -m pip install etalumacontrol
+```
+
 ## Sample program
 
 Here's a sample program which moves the stage to a specified position, acquires an image, and displays it on the screen.
