@@ -12,5 +12,6 @@ setup(
     url='https://github.com/jonasoh/etalumacontrol',
     license=license,
     packages=find_packages(),
+    include_package_data=True,
     install_requires=['intelhex>=2.3.0', 'Pillow>=8.3.1', 'pycparser>=2.20', 'pythonnet>=2.5.2', 'pyusb>=1.2.1']
 )
