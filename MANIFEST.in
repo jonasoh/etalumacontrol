@@ -1,2 +1,2 @@
-include etalumacontrol/resources/*
+recursive-include etalumacontrol/resources *.hex *.dll
 include LICENSE
