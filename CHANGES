@@ -1,0 +1,8 @@
+# 0.1.1
+
+- Do not try to respect axis movement limits reported by the SDK. These values do not represent true axis limits.
+- Fix a bug causing movement distance on the Z axis to be incorrectly converted from millimeters to microsteps.
+
+# 0.1.0
+
+- Initial release.
