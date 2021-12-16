@@ -80,14 +80,17 @@ class EtalumaStage(object):
         self.hw.CloseCommLink()
 
     @staticmethod
-    def mm_to_microsteps(value: float) -> int:
+    def mm_to_microsteps(value: float, axis: str = 'X') -> int:
         '''
         Convert a value from millimeters to microsteps.
 
         Arguments:
         * *value* -- The value to convert.
         '''
-        return StageController.ConvertMicrometersToMicroSteps(value * 1000)
+        if axis.upper() == 'Z':
+            return StageController.ConvertZMicrometersToMicroSteps(value * 1000)
+        else:
+            return StageController.ConvertMicrometersToMicroSteps(value * 1000)
 
     @staticmethod
     def _check_axis(axis: str):
@@ -154,15 +157,17 @@ class EtalumaStage(object):
             raise StageError('Position outside allowed range')
 
         if not microsteps:
-            pos = self.mm_to_microsteps(pos)
+            pos = self.mm_to_microsteps(pos, axis=axis)
 
         # check that we're in range
-        if pos not in self.axis_range[axis]:
-            raise StageError('Requested position out of range')
-        
+        # XXX: disable for now -- StageController.[x,y,z]MaximumAxisTravelMicrosteps returns values
+        # which are more constrained than the actual allowed ranges.
+        #if pos not in self.axis_range[axis]:
+        #    raise StageError('Requested position out of range')
+
         # construct name for method to initiate movement
         method = 'Move' + axis + 'StageToAbsolutePositionMicroSteps'
-        
+
         # this is the function to check if the command has finished
         ctrl_method = axis.lower() + 'ReachedCommandedPosition'
 
