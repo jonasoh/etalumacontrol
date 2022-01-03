@@ -43,6 +43,10 @@ with EtalumaStage() as stage, LumaScope() as scope:
     img.show()
 ```
 
+## Documentation
+
+The documentation for this package can be found at [ReadTheDocs](https://etalumacontrol.readthedocs.io/en/latest/).
+
 ## License
 
 Etalumacontrol is licensed under a 2-clause BSD license. 
