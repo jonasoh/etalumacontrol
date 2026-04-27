@@ -54,3 +54,7 @@ Etalumacontrol is licensed under a 2-clause BSD license.
 Etalumacontrol contains microscope firmware and DLL files kindly provided by Etaluma, which are not subject to this license. These files may be distributed as part of the etalumacontrol package, but for other uses please contact Etaluma directly.
 
 Etalumacontrol contains code written by [John Kelley](https://github.com/John-K). See its separate license file in the CypressFX directory.
+
+## Funding
+
+The development of this software was supported by the HR2020 ERC Grant number 948138. 
